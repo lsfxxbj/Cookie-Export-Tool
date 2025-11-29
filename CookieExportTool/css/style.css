@@ -1,0 +1,221 @@
+/* 全局样式 */
+body {
+  width: 240px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* 选项卡按钮样式 */
+.tab-buttons {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.tab-button.active {
+  background-color: #28a745;
+  color: white;
+}
+
+.tab-button:not(:last-child) {
+  border-right: none;
+}
+
+/* 选项卡内容样式 */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* 过滤选项样式 */
+.filter-options {
+  margin-bottom: 12px; /* 减小底部边距 */
+}
+
+.filter-item {
+  margin-bottom: 8px; /* 减小底部边距 */
+}
+
+.filter-item label {
+  display: inline-block;
+  width: 80px;
+  margin-right: 10px;
+}
+
+.format-select {
+  width: 200px;
+  padding: 5px;
+}
+
+/* 按钮样式 */
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px; /* 减小按钮间距 */
+  margin-bottom: 12px; /* 减小底部边距 */
+}
+
+button {
+  padding: 8px;
+  background-color: #28a745; /* 将按钮背景色从蓝色改为绿色 */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: #218838; /* 悬停时的深绿色 */
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* 进度条样式 */
+.progress-container {
+  width: 100%;
+  height: 12px;
+  background-color: transparent;
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 10px;
+  /* 始终占用空间，防止页面跳动 */
+  display: block;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #28a745; /* 将进度条颜色从蓝色改为绿色 */
+  width: 0%;
+  transition: width 0.3s ease;
+  /* 默认情况下不显示进度条，只有在操作进行时才显示 */
+  opacity: 0;
+}
+
+.progress-container.visible {
+  /* 当容器具有visible类时，显示背景 */
+  background-color: #f0f0f0;
+}
+
+.progress-container.visible .progress-bar {
+  /* 当容器具有visible类时，显示进度条 */
+  opacity: 1;
+}
+
+/* 隐藏进度条文字 */
+.progress-text {
+  display: none;
+}
+
+/* 结果区域样式 */
+.result {
+  /* 设置较小的最小高度以节省空间 */
+  min-height: 30px;
+  padding: 10px 15px; /* 减小上下内边距 */
+  border-radius: 5px;
+  margin: 8px 0; /* 减小外边距 */
+  /* 始终占用空间，防止页面跳动 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.result.visible {
+  visibility: visible;
+}
+
+.result.success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.result.error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.result.loading {
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+  color: #0c5460;
+}
+
+/* 添加动画相关样式 */
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: scale(1); }
+  20% { opacity: 1; transform: scale(1.05); }
+  80% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0) scale(1.02); }
+  25% { transform: translateX(-5px) scale(1.05); }
+  75% { transform: translateX(5px) scale(1.05); }
+}
+
+/* 统计信息样式 */
+.stats {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px; /* 添加顶部边距 */
+}
+
+/* 拖放区域样式 */
+#drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+#drop-area.dragover {
+  background-color: #e6f3ff;
+  border-color: #28a745;
+}
+
+#file-input {
+  display: none;
+}
